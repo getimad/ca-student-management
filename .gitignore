@@ -1,0 +1,22 @@
+# Compiled output
+/bin/
+/obj/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+
+# User-specific files
+*.user
+*.suo
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio files
+.vs/
+.vscode/
+*.sln
+*.vssettings
