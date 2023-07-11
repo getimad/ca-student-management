@@ -43,19 +43,20 @@ namespace ca_student_management
 
         private static void Header()
         {
-            Console.WriteLine("---------------------------------");
+            Console.WriteLine("+-------------------------------+");
             Console.WriteLine("| WELCOME TO STUDENT MANAGRMENT |");
-            Console.WriteLine("---------------------------------");
+            Console.WriteLine("+-------------------------------+");
         }
 
         private static void Menu()
         {
-            Console.WriteLine("------------- Menu --------------");
+            Console.WriteLine("+------------ Menu -------------+");
             Console.WriteLine("1. Show interns.");
             Console.WriteLine("2. Add an intern.");
             Console.WriteLine("3. Modify an intern.");
             Console.WriteLine("4. Delete an intern.");
             Console.WriteLine("5. Exist.");
+            Console.WriteLine("+-------------------------------+");
         }
 
         private static void Show()

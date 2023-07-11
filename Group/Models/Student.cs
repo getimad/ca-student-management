@@ -7,7 +7,6 @@
 
         public int Id { get; }
         public string FullName { get; set; }
-
         public double Degree {
             get { return degree; }
             set
@@ -22,19 +21,21 @@
                 }
             }
         }
+        public DateTime JoinDate { get; }
 
         public Student(string fullName, double degree)
         {
             Id = nextId;
             FullName = fullName;
             Degree = degree;
+            JoinDate = DateTime.Now;
 
             nextId += 1;
         }
 
         public override string ToString()
         {
-            return $"{Id} - {FullName} - {degree}";
+            return $"{Id} - {FullName} - {degree} - {JoinDate}";
         }
     }
 }
