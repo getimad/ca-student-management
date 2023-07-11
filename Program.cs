@@ -32,13 +32,17 @@ namespace ca_student_management
                         Delete();
                         break;
                     case "5":
-                        Console.WriteLine("Goodbye :)");
+                        Search();
                         break;
+                    case "6":
+                        goto Found;
                     default:
                         Console.WriteLine("Wrong input, please enter an option between 1-5.");
                         break;
                 }
             }
+
+            Found: Console.WriteLine("Goodbye :)");
         }
 
         private static void Header()
@@ -51,11 +55,12 @@ namespace ca_student_management
         private static void Menu()
         {
             Console.WriteLine("+------------ Menu -------------+");
-            Console.WriteLine("1. Show interns.");
-            Console.WriteLine("2. Add an intern.");
-            Console.WriteLine("3. Modify an intern.");
-            Console.WriteLine("4. Delete an intern.");
-            Console.WriteLine("5. Exist.");
+            Console.WriteLine("1. Show");
+            Console.WriteLine("2. Add");
+            Console.WriteLine("3. Modify");
+            Console.WriteLine("4. Delete");
+            Console.WriteLine("5. Search");
+            Console.WriteLine("6. Exist");
             Console.WriteLine("+-------------------------------+");
         }
 
@@ -70,7 +75,7 @@ namespace ca_student_management
         private static void Insert()
         {
             Console.Write("  Full Name: ");
-            var fullName = Console.ReadLine();
+            var fullName = Console.ReadLine() ?? "Person";
 
             Console.Write("  Degree: ");
             var degree = Convert.ToDouble(Console.ReadLine());
@@ -83,11 +88,11 @@ namespace ca_student_management
 
         private static void Update()
         {
-            Console.Write("  Enter the student's id you want to update:");
+            Console.Write("  Enter the student's id: ");
             var stdId = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("  Full Name: ");
-            var fullName = Console.ReadLine();
+            var fullName = Console.ReadLine() ?? "Person";
 
             Console.Write("  Degree: ");
             var degree = Convert.ToDouble(Console.ReadLine());
@@ -100,12 +105,32 @@ namespace ca_student_management
 
         private static void Delete()
         {
-            Console.Write("  Enter the student's id you want to delete:");
+            Console.Write("  Enter the student's id:");
             var stdId = Convert.ToInt32(Console.ReadLine());
 
             Students.Delete(stdId);
 
             Console.WriteLine("The student is deleted succesfuly.");
+        }
+
+        private static void Search()
+        {
+            Console.Write("  Search for a student by its name: ");
+            var input = Console.ReadLine() ?? "";
+
+            var result = Students.Search(input);
+
+            if (result.Any())
+            {
+                for (int i = 0; i < result.Count; i++)
+                {
+                    Console.WriteLine(result[i]);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Not Found.");
+            }
         }
     }
 }

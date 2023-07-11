@@ -87,5 +87,20 @@ namespace ca_student_management.Group
 
             students[index] = std;
         }
+
+        public List<Std> Search(string input)
+        {
+            var list = new List<Std>();
+
+            for (int i = 0; i < students.Count; i++)
+            {
+                if (students[i].FullName.Contains(input))
+                {
+                    list.Add(students[i]);
+                }
+            }
+
+            return list;
+        }
     }
 }
