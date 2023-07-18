@@ -35,7 +35,7 @@
 
         public override string ToString()
         {
-            return $"{Id} - {FullName} - {degree} - {JoinDate}";
+            return $"{Id:x4} - {FullName} - {degree} - {JoinDate}";
         }
     }
 }

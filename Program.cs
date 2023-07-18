@@ -105,7 +105,7 @@ namespace ca_student_management
 
         private static void Delete()
         {
-            Console.Write("  Enter the student's id:");
+            Console.Write("  Enter the student's id: ");
             var stdId = Convert.ToInt32(Console.ReadLine());
 
             Students.Delete(stdId);
