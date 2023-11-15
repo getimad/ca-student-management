@@ -1,7 +1,6 @@
 ﻿using Grp = ca_student_management.Group.Group;
 using Std = ca_student_management.Group.Models.Student;
 
-
 namespace ca_student_management
 {
     internal class Program
@@ -66,10 +65,14 @@ namespace ca_student_management
 
         private static void Show()
         {
-            for (int i = 0; i < Students.Count(); i++)
+            if (Students.Count() != 0)
             {
-                Console.WriteLine(Students[i]);
+                for (int i = 0; i < Students.Count(); i++)
+                    Console.WriteLine(Students[i]);
             }
+
+            else
+                Console.WriteLine("The group is empty.");
         }
 
         private static void Insert()
@@ -120,17 +123,10 @@ namespace ca_student_management
 
             var result = Students.Search(input);
 
-            if (result.Any())
-            {
-                for (int i = 0; i < result.Count; i++)
-                {
-                    Console.WriteLine(result[i]);
-                }
-            }
+            if (result.Count != 0)
+                Array.ForEach(result.ToArray(), Console.WriteLine);
             else
-            {
                 Console.WriteLine("Not Found.");
-            }
         }
     }
 }
